@@ -18,11 +18,11 @@
   $minWidth: math.div($minViewportWidth, 16);
 
   $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
-  $yAxisIntersection: -$minWidth * slope + $minSize;
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
 
   @return clamp(
     #{$minSize * 1rem},
-    #{$yAxisIntersection * 1rem} + #{slope * 100vw},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
     #{$maxSize * 1rem}
   );
 }
