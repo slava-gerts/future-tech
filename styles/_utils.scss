@@ -21,3 +21,46 @@
     display: none !important;
   }
 }
+
+.full-vw-line {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: calc((100vw - var(--container-width)) / 2);
+    min-width: var(--container-padding-x);
+    height: rem(1);
+    background-color: var(--color-dark-15);
+  }
+
+  &--top {
+    &::before {
+      content: '';
+      bottom: 100%;
+    }
+  }
+
+  &--bottom {
+    &::after {
+      content: '';
+      top: 100%;
+    }
+  }
+
+  &--left {
+    &::before,
+    &::after {
+      content: '';
+      right: 100%;
+    }
+  }
+
+  &--right {
+    &::before,
+    &::after {
+      content: '';
+      left: 100%;
+    }
+  }
+}
