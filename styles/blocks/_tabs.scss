@@ -3,6 +3,10 @@
 .tabs {
   &__header {
     border-bottom: var(--border);
+
+    @include tablet {
+      overflow-x: auto;
+    }
   }
 
   &__buttons {
@@ -11,8 +15,12 @@
     column-gap: rem(20);
     padding-block: fluid(50, 20);
 
-    @include tablet {
+    @include laptop {
       column-gap: rem(14);
+    }
+
+    @include tablet {
+      width: max-content;
     }
   }
 
@@ -38,6 +46,16 @@
       font-weight: 500;
       background-color: var(--color-dark-10);
       pointer-events: none;
+    }
+  }
+
+  &__content {
+    &:not(.is-active) {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline-offset: -1rem;
     }
   }
 }
