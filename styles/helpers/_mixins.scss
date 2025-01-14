@@ -1,8 +1,8 @@
 @use 'sass:math';
-@use 'functions';
+@use 'functions' as *;
 
 @mixin fluid-text($max: 48, $min: 16) {
-  font-size: functions.fluid($max, $min);
+  font-size: fluid($max, $min);
 }
 
 @mixin hide {
@@ -61,4 +61,18 @@
   clip-path: inset(100%) !important;
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
+}
+
+@mixin full-vw-centered-line($property: top) {
+  position: relative;
+
+  &::before {
+    @include abs-x;
+
+    content: '';
+    #{$property}: 0;
+    width: var(--100vw);
+    height: rem(1);
+    background-color: var(--color-dark-15);
+  }
 }
